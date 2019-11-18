@@ -7,4 +7,4 @@ test/.settings
 .vscode
 test/.vscode
 test/target
-# test/.project
+test/.project
