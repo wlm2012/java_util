@@ -3,4 +3,8 @@
 .idea/ 
 *.class
 test/.classpath
-test/.settings/*
+test/.settings
+.vscode
+test/.vscode
+test/target
+# test/.project
