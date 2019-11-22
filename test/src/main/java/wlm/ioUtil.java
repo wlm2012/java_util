@@ -10,13 +10,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-import javax.print.DocFlavor.STRING;
 
 public class ioUtil {
     public static void main(String[] args) {
         String FromPath = "C:\\Users\\lenovo2\\Desktop\\业务影像化.postman_collection.json";
         String ToPath="";
-        
+
         FromPath=RepalceSeparator(FromPath);
         ToPath=RepalceSeparator(ToPath);
         readFile(FromPath);
@@ -61,7 +60,7 @@ public class ioUtil {
     public static void MoveFile(String FromPath, String ToPath) {
         File FromFile = new File(FromPath);
         File ToFile = new File(ToPath);
-        FileInputStream fInputStream=null;
+/*         FileInputStream fInputStream=null;
         FileOutputStream fOutputStream=null;
         try {
             fInputStream = new FileInputStream(FromFile);
@@ -70,7 +69,7 @@ public class ioUtil {
         } catch (FileNotFoundException e) {
 
             e.printStackTrace();
-        }
+        } */
     }
 
 }
