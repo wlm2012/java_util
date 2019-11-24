@@ -2,9 +2,7 @@ package wlm;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -58,9 +56,9 @@ public class ioUtil {
     }
 
     public static void MoveFile(String FromPath, String ToPath) {
-        File FromFile = new File(FromPath);
+/*        File FromFile = new File(FromPath);
         File ToFile = new File(ToPath);
-/*         FileInputStream fInputStream=null;
+         FileInputStream fInputStream=null;
         FileOutputStream fOutputStream=null;
         try {
             fInputStream = new FileInputStream(FromFile);
