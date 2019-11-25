@@ -27,8 +27,8 @@ public class ListTest {
     }
 
     public void test2(){
-        System.out.println(list.size());
-        list.clear();
+        // System.out.println(list.size());
+        // list.clear();
         ArrayList<String> lArrayList=new ArrayList<>();
         lArrayList.add("1");
         list=lArrayList;
