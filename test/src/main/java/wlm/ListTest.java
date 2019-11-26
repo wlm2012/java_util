@@ -17,7 +17,7 @@ public class ListTest {
            System.out.println(s);
        }
        list.remove(0);
-       list.remove(0);
+       list.remove(1);
        
        System.out.println(list.get(0));
        for(String s:list){
@@ -30,7 +30,7 @@ public class ListTest {
         // System.out.println(list.size());
         // list.clear();
         ArrayList<String> lArrayList=new ArrayList<>();
-        lArrayList.add("1");
+        lArrayList.add("a");
         list=lArrayList;
     }
 }

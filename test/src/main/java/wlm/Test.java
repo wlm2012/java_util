@@ -7,8 +7,9 @@ public class Test {
     ArrayList<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        Test test = new Test();
-        test.name();
+        String str="xxx.png";
+        String[] s=str.split("\\.");
+        System.out.println(s[1]);
 
     }
 
