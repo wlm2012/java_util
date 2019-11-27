@@ -10,19 +10,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
-
 public class IoUtil {
     public static void main(String[] args) {
         String FromPath = "C:\\Users\\lenovo2\\Desktop\\业务影像化.postman_collection.json";
-        String ToPath="";
+        String ToPath = "";
 
-        FromPath=RepalceSeparator(FromPath);
-        ToPath=RepalceSeparator(ToPath);
+        FromPath = RepalceSeparator(FromPath);
+        ToPath = RepalceSeparator(ToPath);
         readFile(FromPath);
     }
 
-    //根据系统自动修改斜杆和反斜杠
-    public static String RepalceSeparator(String s){
+    // 根据系统自动修改斜杆和反斜杠
+    public static String RepalceSeparator(String s) {
         return s.replace("\\", File.separator).replace("/", File.separator);
     }
 
@@ -63,12 +62,12 @@ public class IoUtil {
         File ToFile = new File(ToPath);
         FileInputStream fInputStream = null;
         FileOutputStream fOutputStream = null;
-        byte[] buf=new byte[1024]; 
+        byte[] buf = new byte[1024];
         try {
             fInputStream = new FileInputStream(FromFile);
             fOutputStream = new FileOutputStream(ToFile);
-            int length=0;
-            while(fInputStream.available()>0){
+            int length = 0;
+            while (fInputStream.available() > 0) {
 
             }
 
@@ -80,18 +79,33 @@ public class IoUtil {
         }
     }
 
+    /**
+     * 通过改变文件路径来移动文件
+     * 
+     * @param fromPath 源路径+文件名
+     * @param toPath   新路径（没有文件名）
+     * @throws Exception
+     */
 
-   /**
-    * 通过转化文件路径来移动文件
-    * @param fromPath  源路径+文件名
-    * @param toPath   新路径（没有文件名）
-    */
+    public static void changeFilePath(String fromPath, String toPath) throws Exception {
+        try {
+            toPath = toPath + "\\";
+            File fromfile = new File(RepalceSeparator(fromPath));
+            File tofile = new File(RepalceSeparator(toPath) + fromfile.getName());
+    
+            if (fromfile.renameTo(tofile)) {
+                // System.out.println("移动成功");
+                //do nothing
+            } else {
+                throw new Exception("文件移动失败");
+            }
+        } catch (Exception e) {
+            throw e;
+        }
 
-    public static void changeFilePath(String fromPath,String toPath) {
-        toPath=toPath+"\\";
-        File fromfile=new File(RepalceSeparator(fromPath));
-        File tofile=new File(RepalceSeparator(toPath)+fromfile.getName());
-        fromfile.renameTo(tofile);
+
+
+
     }
 
 }
