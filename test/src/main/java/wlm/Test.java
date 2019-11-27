@@ -7,9 +7,8 @@ public class Test {
     ArrayList<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
-
         try {
-            IoUtil.changeFilePath("C:\\Users\\lenovo2\\Desktop\\1\\0.json", "C:\\Users\\lenovo2\\Desktop\\2");
+            IoUtil.creatFolder("C:\\Users\\lenovo2\\Desktop\\1\\4\\3");
         } catch (Exception e) {
             e.printStackTrace();
         }

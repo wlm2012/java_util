@@ -92,20 +92,31 @@ public class IoUtil {
             toPath = toPath + "\\";
             File fromfile = new File(RepalceSeparator(fromPath));
             File tofile = new File(RepalceSeparator(toPath) + fromfile.getName());
-    
+
             if (fromfile.renameTo(tofile)) {
                 // System.out.println("移动成功");
-                //do nothing
+                // do nothing
             } else {
                 throw new Exception("文件移动失败");
             }
         } catch (Exception e) {
             throw e;
         }
+    }
 
+    public static void creatFolder(String folderPath) throws Exception {
+        try {
+            File filePath = new File(folderPath);
+            if (!filePath.exists()) {
+                if (filePath.mkdirs()) {
 
-
-
+                } else {
+                    throw new Exception("新建文件夹失败");
+                }
+            }
+        } catch (Exception e) {
+            throw new Exception("新建文件夹失败");
+        }
     }
 
 }
