@@ -7,9 +7,7 @@ public class Test {
     ArrayList<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        String str="xxx.png";
-        String[] s=str.split("\\.");
-        System.out.println(s[1]);
+        IoUtil.changeFilePath("C:\\Users\\lenovo2\\Desktop\\1\\1.json","C:\\Users\\lenovo2\\Desktop\\2");
 
     }
 
