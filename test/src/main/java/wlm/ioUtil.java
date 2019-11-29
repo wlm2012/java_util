@@ -118,7 +118,7 @@ public class IoUtil {
         }
     }
 
-    public static void creatFile(String filePath) throws Exception {
+    public static void creatFileOnly(String filePath) throws Exception {
         try {
             File fileName = new File(filePath);
             if (!fileName.exists()) {
@@ -134,26 +134,34 @@ public class IoUtil {
 
     public static void delFile(String filePath) throws Exception {
         try {
-            File file=new File(filePath);
+            File file = new File(filePath);
             if (file.delete()) {
-                
-            }else{
+
+            } else {
                 throw new Exception("删除文件失败");
-            }  
+            }
         } catch (Exception e) {
             throw e;
         }
     }
 
-
-    public static void creatFileAndFolder(String filePath) {
-        File file=new File(filePath);
-        if (file.isFile()) {
-            int i=filePath.lastIndexOf(File.separator);
-
+    public static void creatFile(String filePath) throws Exception {
+        try {
+            if (filePath.lastIndexOf(File.separator) < 0) {
+                throw new Exception("文件路径不正确");
+            }
+            String FolderPath = filePath.substring(0, filePath.lastIndexOf(File.separator));
+            File Folder = new File(FolderPath);
+            if (Folder.exists()) {
+                creatFileOnly(filePath);
+            } else {
+                creatFolder(FolderPath);
+                creatFileOnly(filePath);
+            }
+        } catch (Exception e) {
+            throw e;
         }
-        System.out.println(file.isDirectory());
-        System.out.println(file.isFile());
     }
+
 
 }
