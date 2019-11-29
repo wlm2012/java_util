@@ -109,14 +109,51 @@ public class IoUtil {
             File filePath = new File(folderPath);
             if (!filePath.exists()) {
                 if (filePath.mkdirs()) {
-
                 } else {
                     throw new Exception("新建文件夹失败");
                 }
             }
         } catch (Exception e) {
-            throw new Exception("新建文件夹失败");
+            throw e;
         }
+    }
+
+    public static void creatFile(String filePath) throws Exception {
+        try {
+            File fileName = new File(filePath);
+            if (!fileName.exists()) {
+                if (fileName.createNewFile()) {
+                } else {
+                    throw new Exception("新建文件失败");
+                }
+            }
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public static void delFile(String filePath) throws Exception {
+        try {
+            File file=new File(filePath);
+            if (file.delete()) {
+                
+            }else{
+                throw new Exception("删除文件失败");
+            }  
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+
+    public static void creatFileAndFolder(String filePath) {
+        File file=new File(filePath);
+        if (file.isFile()) {
+            int i=filePath.lastIndexOf(File.separator);
+
+        }
+        System.out.println(file.isDirectory());
+        System.out.println(file.isFile());
     }
 
 }

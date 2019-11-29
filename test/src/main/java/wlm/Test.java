@@ -8,7 +8,7 @@ public class Test {
 
     public static void main(String[] args) {
         try {
-            IoUtil.creatFolder("C:\\Users\\lenovo2\\Desktop\\1\\4\\3");
+            IoUtil.creatFileAndFolder("C:\\Users\\lenovo2\\Desktop\\1\\4\\3");
         } catch (Exception e) {
             e.printStackTrace();
         }
