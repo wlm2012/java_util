@@ -39,39 +39,40 @@ public class IoUtil {
         }
     }
 
-    public static void readFile(String path) {
+    public static void readFile(String path) throws IOException {
         File file = new File(path);
         FileReader fReader = null;
         try {
             fReader = new FileReader(file);
-            char[] buf = new char[1024*10];
+            char[] buf = new char[1024 * 10];
             int temp = 0;
             while ((temp = fReader.read(buf)) > 0) {
                 System.out.print(new String(buf, 0, temp));
             }
         } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
+            throw e;
         } catch (IOException e) {
-            e.printStackTrace();
+            throw e;
+        } finally {
+            fReader.close();
         }
 
     }
 
-    public static void writeFile(String path,String s) throws Exception {
-        File file=new File(path);
+    public static void writeFile(String path, String s) throws Exception {
+        File file = new File(path);
         if (!file.exists()) {
             creatFile(path);
         }
-        FileWriter fileWriter=null;
+        FileWriter fileWriter = null;
         try {
-            fileWriter= new FileWriter(file,true);
+            fileWriter = new FileWriter(file, true);
             fileWriter.write(s);
 
         } catch (IOException e) {
             e.printStackTrace();
             throw e;
-        }finally{
+        } finally {
             fileWriter.close();
         }
     }
