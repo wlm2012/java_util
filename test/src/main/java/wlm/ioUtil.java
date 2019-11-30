@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -43,7 +44,7 @@ public class IoUtil {
         FileReader fReader = null;
         try {
             fReader = new FileReader(file);
-            char[] buf = new char[1024];
+            char[] buf = new char[1024*10];
             int temp = 0;
             while ((temp = fReader.read(buf)) > 0) {
                 System.out.print(new String(buf, 0, temp));
@@ -55,6 +56,24 @@ public class IoUtil {
             e.printStackTrace();
         }
 
+    }
+
+    public static void writeFile(String path,String s) throws Exception {
+        File file=new File(path);
+        if (!file.exists()) {
+            creatFile(path);
+        }
+        FileWriter fileWriter=null;
+        try {
+            fileWriter= new FileWriter(file,true);
+            fileWriter.write(s);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw e;
+        }finally{
+            fileWriter.close();
+        }
     }
 
     public static void MoveFile(String FromPath, String ToPath) {
@@ -162,8 +181,5 @@ public class IoUtil {
             throw e;
         }
     }
-
-
-    
 
 }
