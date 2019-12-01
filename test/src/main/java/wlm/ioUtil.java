@@ -39,16 +39,18 @@ public class IoUtil {
         }
     }
 
-    public static void readFile(String path) throws IOException {
+    public static String readFile(String path) throws IOException {
         File file = new File(path);
         FileReader fReader = null;
+        StringBuffer stringBuffer = new StringBuffer();
         try {
             fReader = new FileReader(file);
             char[] buf = new char[1024 * 10];
             int temp = 0;
             while ((temp = fReader.read(buf)) > 0) {
-                System.out.print(new String(buf, 0, temp));
+                stringBuffer.append(new String(buf, 0, temp));
             }
+            return stringBuffer.toString();
         } catch (FileNotFoundException e) {
             throw e;
         } catch (IOException e) {
@@ -56,7 +58,6 @@ public class IoUtil {
         } finally {
             fReader.close();
         }
-
     }
 
     public static void writeFile(String path, String s) throws Exception {
