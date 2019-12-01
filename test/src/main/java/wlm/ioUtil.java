@@ -40,6 +40,7 @@ public class IoUtil {
     }
 
     public static String readFile(String path) throws IOException {
+        path = RepalceSeparator(path);
         File file = new File(path);
         FileReader fReader = null;
         StringBuffer stringBuffer = new StringBuffer();
@@ -61,6 +62,7 @@ public class IoUtil {
     }
 
     public static void writeFile(String path, String s) throws Exception {
+        path = RepalceSeparator(path);
         File file = new File(path);
         if (!file.exists()) {
             creatFile(path);
@@ -79,6 +81,8 @@ public class IoUtil {
     }
 
     public static void MoveFile(String FromPath, String ToPath) {
+        FromPath = RepalceSeparator(FromPath);
+        ToPath = RepalceSeparator(ToPath);
         File FromFile = new File(FromPath);
         File ToFile = new File(ToPath);
         FileInputStream fInputStream = null;
