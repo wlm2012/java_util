@@ -1,5 +1,8 @@
 package wlm;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.ResolverStyle;
 import java.util.ArrayList;
 
 public class Test {
@@ -8,11 +11,22 @@ public class Test {
 
     public static void main(String[] args) {
         try {
-            IoUtil.writeFile("C:\\Users\\lenovo2\\Desktop\\1\\4\\3\\1.txt", "s");
+            System.out.println(parseLocalDate("2019-11-02"));
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+    }
+
+    public static LocalDate parseLocalDate(String s) {
+        try {
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd").withResolverStyle(ResolverStyle.STRICT);
+            LocalDate localDate = LocalDate.parse(s, dtf);
+            return localDate;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public void name() {
