@@ -18,7 +18,7 @@ public class IoUtil {
 
         FromPath = RepalceSeparator(FromPath);
         ToPath = RepalceSeparator(ToPath);
-        readFile(FromPath);
+        // readFile(FromPath);
     }
 
     // 根据系统自动修改斜杆和反斜杠
