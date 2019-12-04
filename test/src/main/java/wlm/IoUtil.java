@@ -13,11 +13,9 @@ import java.io.InputStreamReader;
 
 public class IoUtil {
     public static void main(String[] args) throws IOException {
-        String FromPath = "C:\\Users\\lenovo2\\Desktop\\业务影像化.postman_collection.json";
-        String ToPath = "";
-
-        FromPath = RepalceSeparator(FromPath);
-        ToPath = RepalceSeparator(ToPath);
+        String FromPath = "C:\\Users\\lenovo2\\Desktop\\1\\4\\3\\1.txt";
+        String ToPath = "C:\\Users\\lenovo2\\Desktop\\2\\1.txt";
+        MoveFile(FromPath, ToPath);
         // readFile(FromPath);
     }
 
@@ -84,8 +82,8 @@ public class IoUtil {
         FromPath = RepalceSeparator(FromPath);
         ToPath = RepalceSeparator(ToPath);
         byte[] buf = new byte[1024];
-        FileInputStream fInputStream =null;
-        FileOutputStream fOutputStream=null;
+        FileInputStream fInputStream = null;
+        FileOutputStream fOutputStream = null;
         try {
             fInputStream = new FileInputStream(FromPath);
             fOutputStream = new FileOutputStream(ToPath);
@@ -95,7 +93,7 @@ public class IoUtil {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally{
+        } finally {
             fInputStream.close();
             fOutputStream.close();
         }
