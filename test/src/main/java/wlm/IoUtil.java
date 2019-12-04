@@ -80,30 +80,26 @@ public class IoUtil {
         }
     }
 
-    public static void MoveFile(String FromPath, String ToPath) {
+    public static void MoveFile(String FromPath, String ToPath) throws IOException {
         FromPath = RepalceSeparator(FromPath);
         ToPath = RepalceSeparator(ToPath);
-        File FromFile = new File(FromPath);
-        File ToFile = new File(ToPath);
-        FileInputStream fInputStream = null;
-        FileOutputStream fOutputStream = null;
         byte[] buf = new byte[1024];
+        FileInputStream fInputStream =null;
+        FileOutputStream fOutputStream=null;
         try {
-            fInputStream = new FileInputStream(FromFile);
-            fOutputStream = new FileOutputStream(ToFile);
+            fInputStream = new FileInputStream(FromPath);
+            fOutputStream = new FileOutputStream(ToPath);
             int length = 0;
-            while (fInputStream.available() > 0) {
-
+            while ((length = fInputStream.read(buf)) > 0) {
+                fOutputStream.write(buf, 0, length);
             }
-
-        } catch (FileNotFoundException e) {
-
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }finally{
+            fInputStream.close();
+            fOutputStream.close();
         }
     }
-
 
     /**
      * 通过改变文件路径来移动文件
@@ -131,7 +127,6 @@ public class IoUtil {
             return true;
         }
     }
-
 
     public static boolean creatFileOnly(String filePath) throws IOException {
 
