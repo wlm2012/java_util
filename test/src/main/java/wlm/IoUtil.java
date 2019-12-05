@@ -74,7 +74,7 @@ public class IoUtil {
     public static void MoveFile(String FromPath, String ToPath) throws IOException {
         FromPath = RepalceSeparator(FromPath);
         ToPath = RepalceSeparator(ToPath);
-        byte[] buf = new byte[1024];
+        byte[] buf = new byte[1024*10];
         try (FileInputStream fInputStream = new FileInputStream(FromPath);
                 FileOutputStream fOutputStream = new FileOutputStream(ToPath)) {
             int length = 0;

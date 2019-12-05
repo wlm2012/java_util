@@ -1,6 +1,29 @@
 package wlm;
 
 class Solution {
+
+    
+
+
+
+
+
+
+
+    public int[] twoSum(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i; j < nums.length; j++) {
+                if (target==(nums[i]+nums[j])) {
+                    int[] n={i,j};
+                    return n;
+                }
+            }
+        }
+        return null;
+    }
+
+
+
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         int i=0;
         int val1=0;
