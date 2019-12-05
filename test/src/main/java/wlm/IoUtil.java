@@ -32,7 +32,6 @@ public class IoUtil {
         try {
             System.out.println(bReader.read());
         } catch (IOException e) {
-
             e.printStackTrace();
         }
     }
@@ -40,10 +39,9 @@ public class IoUtil {
     public static String readFile(String path) throws IOException {
         path = RepalceSeparator(path);
         File file = new File(path);
-        FileReader fReader = null;
         StringBuffer stringBuffer = new StringBuffer();
-        try {
-            fReader = new FileReader(file);
+        try (FileReader fReader = new FileReader(file)) {
+
             char[] buf = new char[1024 * 10];
             int temp = 0;
             while ((temp = fReader.read(buf)) > 0) {
@@ -54,8 +52,6 @@ public class IoUtil {
             throw e;
         } catch (IOException e) {
             throw e;
-        } finally {
-            fReader.close();
         }
     }
 
@@ -65,16 +61,11 @@ public class IoUtil {
         if (!file.exists()) {
             creatFile(path);
         }
-        FileWriter fileWriter = null;
-        try {
-            fileWriter = new FileWriter(file, true);
+        try (FileWriter fileWriter = new FileWriter(file, true)) {
             fileWriter.write(s);
-
         } catch (IOException e) {
             e.printStackTrace();
             throw e;
-        } finally {
-            fileWriter.close();
         }
     }
 
@@ -82,20 +73,14 @@ public class IoUtil {
         FromPath = RepalceSeparator(FromPath);
         ToPath = RepalceSeparator(ToPath);
         byte[] buf = new byte[1024];
-        FileInputStream fInputStream = null;
-        FileOutputStream fOutputStream = null;
-        try {
-            fInputStream = new FileInputStream(FromPath);
-            fOutputStream = new FileOutputStream(ToPath);
+        try (FileInputStream fInputStream = new FileInputStream(FromPath);
+                FileOutputStream fOutputStream = new FileOutputStream(ToPath)) {
             int length = 0;
             while ((length = fInputStream.read(buf)) > 0) {
                 fOutputStream.write(buf, 0, length);
             }
         } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            fInputStream.close();
-            fOutputStream.close();
+            throw e;
         }
     }
 

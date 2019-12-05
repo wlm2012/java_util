@@ -1,15 +1,19 @@
 package wlm;
 
+
+
+
 public class TestException {
 
 
     public static void testEx1() {
         try {
-            // int a=1/0;
+             int a=1/0;
 
         } catch (Exception e) {
             System.out.println("test");
             // throw e;
+            // throw new IOException();
         }
     }
 
