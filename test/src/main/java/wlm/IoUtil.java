@@ -13,9 +13,11 @@ import java.io.InputStreamReader;
 
 public class IoUtil {
     public static void main(String[] args) throws IOException {
-        String FromPath = "C:\\Users\\lenovo2\\Desktop\\1\\4\\3\\1.txt";
-        String ToPath = "C:\\Users\\lenovo2\\Desktop\\2\\1.txt";
-        MoveFile(FromPath, ToPath);
+        String FromPath = "C:\\Users\\lenovo2\\Desktop\\业务影像化.postman_collection.json";
+        String ToPath = "";
+
+        FromPath = RepalceSeparator(FromPath);
+        ToPath = RepalceSeparator(ToPath);
         // readFile(FromPath);
     }
 
