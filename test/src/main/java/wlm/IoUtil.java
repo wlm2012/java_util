@@ -43,7 +43,6 @@ public class IoUtil {
         File file = new File(path);
         StringBuffer stringBuffer = new StringBuffer();
         try (FileReader fReader = new FileReader(file)) {
-
             char[] buf = new char[1024 * 10];
             int temp = 0;
             while ((temp = fReader.read(buf)) > 0) {
@@ -71,12 +70,24 @@ public class IoUtil {
         }
     }
 
-    public static void MoveFile(String FromPath, String ToPath) throws IOException {
+    /**
+     * 通过io流来复制文件
+     *
+     * @param FromPath 源路径+文件名
+     * @param ToPath   新路径（没有文件名）
+     * @param fileName 新文件名
+     * @throws IOException
+     */
+    public static void CopyFile(String FromPath, String ToPath, String fileName) throws IOException {
         FromPath = RepalceSeparator(FromPath);
-        ToPath = RepalceSeparator(ToPath);
-        byte[] buf = new byte[1024*10];
+        File file = new File(RepalceSeparator(ToPath));
+        if (!file.exists()) {
+            creatFolder(ToPath);
+        }
+        ToPath = RepalceSeparator(ToPath + "\\" + fileName);
+        byte[] buf = new byte[1024 * 10];
         try (FileInputStream fInputStream = new FileInputStream(FromPath);
-                FileOutputStream fOutputStream = new FileOutputStream(ToPath)) {
+             FileOutputStream fOutputStream = new FileOutputStream(ToPath)) {
             int length = 0;
             while ((length = fInputStream.read(buf)) > 0) {
                 fOutputStream.write(buf, 0, length);
@@ -87,25 +98,41 @@ public class IoUtil {
     }
 
     /**
+     * @param FromPath 源路径+文件名
+     * @param ToPath   新路径（没有文件名）,新文件名与旧文件名相同
+     * @throws IOException
+     */
+    public static void CopyFile(String FromPath, String ToPath) throws IOException {
+        FromPath = RepalceSeparator(FromPath);
+        File file = new File(FromPath);
+        CopyFile(FromPath, ToPath, file.getName());
+    }
+
+    /**
      * 通过改变文件路径来移动文件
+     * 如果文件夹不存在，自动创建
      *
      * @param fromPath 源路径+文件名
-     * @param toPath   新路径（没有文件名）
+     * @param toPath   新路径（没有文件名）,新文件名与旧文件名相同
      * @throws Exception
      */
 
     public static boolean changeFilePath(String fromPath, String toPath) {
 
-        toPath = toPath + "\\";
+        toPath = RepalceSeparator(toPath);
         File fromfile = new File(RepalceSeparator(fromPath));
-        File tofile = new File(RepalceSeparator(toPath) + fromfile.getName());
+        File fileToPath = new File(toPath);
+        if (!fileToPath.exists()) {
+            creatFolder(toPath);
+        }
+        File tofile = new File(toPath + File.separator + fromfile.getName());
         return fromfile.renameTo(tofile);
 
     }
 
     public static boolean creatFolder(String folderPath) {
 
-        File filePath = new File(folderPath);
+        File filePath = new File(RepalceSeparator(folderPath));
         if (!filePath.exists()) {
             return filePath.mkdirs();
         } else {
@@ -113,9 +140,10 @@ public class IoUtil {
         }
     }
 
+
     public static boolean creatFileOnly(String filePath) throws IOException {
 
-        File fileName = new File(filePath);
+        File fileName = new File(RepalceSeparator(filePath));
         if (!fileName.exists()) {
             return fileName.createNewFile();
         } else {
@@ -123,9 +151,10 @@ public class IoUtil {
         }
     }
 
+
     public static boolean delFile(String filePath) {
 
-        File file = new File(filePath);
+        File file = new File(RepalceSeparator(filePath));
         if (file.delete()) {
             return true;
         } else {
@@ -134,9 +163,9 @@ public class IoUtil {
     }
 
     public static void creatFile(String filePath) throws IOException {
-
+        filePath = RepalceSeparator(filePath);
         if (filePath.lastIndexOf(File.separator) < 0) {
-            throw new IOException("文件路径不正确");
+            throw new FileNotFoundException("文件路径不正确");
         }
         String FolderPath = filePath.substring(0, filePath.lastIndexOf(File.separator));
         File Folder = new File(FolderPath);
