@@ -2,86 +2,69 @@ package wlm;
 
 import java.io.IOException;
 
-public class TestException
-{
+public class TestException {
 
-
-    boolean testEx() throws Exception
-    {
+    boolean testEx() throws Exception {
         boolean ret = true;
-        try
-        {
+        try {
             ret = testEx1();
-        }
-        catch (Exception e)
-        {
+            return ret;
+        } catch (Exception e) {
             System.out.println("testEx, catch exception");
             ret = false;
             throw e;
-        }
-        finally
-        {
+        } finally {
             System.out.println("testEx, finally; return value=" + ret);
-            return ret;
+            // return ret;
         }
     }
-    boolean testEx1() throws Exception
-    {
+
+    boolean testEx1() throws Exception {
         boolean ret = true;
-        try
-        {
+        try {
             ret = testEx2();
-            if (!ret)
-            {
+            if (!ret) {
                 return false;
             }
             System.out.println("testEx1, at the end of try");
             return ret;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("testEx1, catch exception");
             ret = false;
             throw e;
-        }
-        finally{
+        } finally {
             System.out.println("testEx1, finally; return value=" + ret);
-            return ret;
+            // return ret;
         }
     }
-    boolean testEx2() throws IOException
-    {
+
+    boolean testEx2() throws IOException {
         boolean ret = true;
-        try
-        {
+        try {
             int b = 12;
             int c;
-            for (int i = 2; i >= -2; i--)
-            {
+            for (int i = 2; i >= -2; i--) {
                 c = b / i;
                 System.out.println("i=" + i);
+                System.out.println("c=" + c);
             }
             return true;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("testEx2, catch exception");
             ret = false;
             throw new IOException();
-        }
-        finally{
+        } finally {
             System.out.println("testEx2, finally; return value=" + ret);
             // ret=true;
             // return ret;
         }
     }
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         TestException testException1 = new TestException();
-        try{
+        try {
             testException1.testEx();
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
