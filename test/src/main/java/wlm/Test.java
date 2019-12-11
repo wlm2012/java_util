@@ -6,14 +6,14 @@ import java.util.ArrayList;
 
 public class Test {
 
-
     ArrayList<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        try {
-            System.out.println(parseLocalDate("2019-11-02"));
-        } catch (Exception e) {
-            e.printStackTrace();
+        String s = null;
+        if ("condition".equals(s)) {
+
+        }else{
+            System.out.println("false");
         }
 
     }
