@@ -9,7 +9,7 @@ public class Test {
     ArrayList<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        String[] ss = null;
+        String[] ss = {"11","22"};
         for (String s : ss) {
             System.out.println(s);
         }
