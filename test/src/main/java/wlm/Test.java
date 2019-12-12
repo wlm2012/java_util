@@ -9,11 +9,9 @@ public class Test {
     ArrayList<String> list = new ArrayList<>();
 
     public static void main(String[] args) {
-        String s = null;
-        if ("condition".equals(s)) {
-
-        }else{
-            System.out.println("false");
+        String[] ss = null;
+        for (String s : ss) {
+            System.out.println(s);
         }
 
     }
