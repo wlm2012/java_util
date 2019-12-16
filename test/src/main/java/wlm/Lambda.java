@@ -44,7 +44,8 @@ public class Lambda {
     }
 
     public static void testCheck() {
-        List pList = Arrays.asList(new Person(),new Person());
+        List<Person> pList = Arrays.asList(new Person(), new Person());
+
     }
 
 }
