@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 public class Lambda {
 
     public static void main(final String[] args) {
-        repeat();
+        testCheck();
     }
 
     public static void test(String[] strings) {
@@ -44,8 +44,18 @@ public class Lambda {
     }
 
     public static void testCheck() {
-        List<Person> pList = Arrays.asList(new Person(), new Person());
+        List<Person> pList = Arrays.asList(new Person("qq", 11), new Person("ww", 22));
+        pList.stream().filter((p) -> {
+            return p.getName().startsWith("q");
+        }).forEach(p -> {
+            System.out.println(p.getName());
+        });
 
+/*         checkAndExecute(pList, (p) -> {
+            return p.getName().startsWith("q");
+        }, p -> {
+            System.out.println(p.getName());
+        }); */
     }
 
 }

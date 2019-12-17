@@ -1,15 +1,13 @@
 package wlm;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-
+import lombok.Data;
 
 @AllArgsConstructor
+@Data
 public class Person {
 
-
     private String name;
-
     private int old;
 
 }
