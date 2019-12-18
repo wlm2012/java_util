@@ -7,10 +7,6 @@ import java.util.function.Predicate;
 
 public class Lambda {
 
-    public static void main(final String[] args) {
-        testCheck();
-    }
-
     public static void test(String[] strings) {
         for (String string : strings) {
 
@@ -19,7 +15,7 @@ public class Lambda {
     }
 
     public static void repeat() {
-        repeat(100, () -> {
+        repeat(10, () -> {
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -51,13 +47,11 @@ public class Lambda {
             System.out.println(p.getName());
         });
 
-
-
-/*         checkAndExecute(pList, (p) -> {
+        checkAndExecute(pList, (p) -> {
             return p.getName().startsWith("q");
         }, p -> {
             System.out.println(p.getName());
-        }); */
+        });
     }
 
 }
