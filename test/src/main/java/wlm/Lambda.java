@@ -1,6 +1,7 @@
 package wlm;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
@@ -16,11 +17,13 @@ public class Lambda {
 
     public static void repeat() {
         repeat(10, () -> {
+
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+
             System.out.println("hello world");
         });
     }
@@ -40,7 +43,7 @@ public class Lambda {
     }
 
     public static void testCheck() {
-        List<Person> pList = Arrays.asList(new Person("qq", 11), new Person("ww", 22));
+        List<Person> pList = Arrays.asList(new Person("qq", 11), new Person("ww", 22), new Person("ee", 13));
         pList.stream().filter((p) -> {
             return p.getName().startsWith("q");
         }).forEach(p -> {
@@ -52,6 +55,15 @@ public class Lambda {
         }, p -> {
             System.out.println(p.getName());
         });
+    }
+
+    public static void comparator() {
+        List<Person> pList = Arrays.asList(new Person("qq", 11), new Person("ww", 22), new Person("ee", 13));
+        Person[] persons = pList.stream().toArray(Person[]::new);
+        Arrays.sort(persons, Comparator.comparing(Person::getOld));
+        for (Person person : persons) {
+            System.out.println(person.getName()+person.getOld());
+        }
     }
 
 }
