@@ -62,10 +62,8 @@ public class Lambda {
         Person[] persons = pList.stream().toArray(Person[]::new);
         Arrays.sort(persons, Comparator.comparing(Person::getOld));
         for (Person person : persons) {
-            System.out.println(person.getName()+person.getOld());
+            System.out.println(person.getName() + person.getOld());
         }
     }
-
-    
 
 }
