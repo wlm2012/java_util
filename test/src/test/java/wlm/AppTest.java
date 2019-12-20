@@ -11,6 +11,6 @@ public class AppTest {
      */
     @Test
     public void shouldAnswerWithTrue() {
-        ArraysTest.arraysize();
+        ArraysTest.arrayAdd();
     }
 }

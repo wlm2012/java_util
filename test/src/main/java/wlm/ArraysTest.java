@@ -11,6 +11,13 @@ public class ArraysTest {
         System.out.println(list.size());
     }
 
-
-    
+    public static void arrayAdd() {
+        List<String> list = new ArrayList<>();
+        list.add("a");
+        list.add("c");
+        list.add(2, "b");
+        for (String s : list) {
+            System.out.println(s);
+        }
+    }
 }
