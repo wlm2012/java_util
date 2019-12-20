@@ -1,23 +1,16 @@
 package wlm;
 
-
-
-
 import org.junit.jupiter.api.Test;
-
-
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-{
+public class AppTest {
     /**
      * Rigorous Test :-)
      */
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        Lambda.comparator();
+    public void shouldAnswerWithTrue() {
+        ArraysTest.arraysize();
     }
 }
