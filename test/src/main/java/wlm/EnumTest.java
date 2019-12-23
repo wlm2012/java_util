@@ -9,6 +9,7 @@ public class EnumTest {
         System.out.println("small, medium, large");
         String input = in.next();
         Size size = Enum.valueOf(Size.class, input);
+        System.out.println("string=" + Size.small.toString());
         System.out.println("size=" + size);
         System.out.println("ab=" + size.getAd());
         in.close();
