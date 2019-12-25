@@ -6,7 +6,6 @@ public class Mobi {
 
     public static void main(String[] args) throws IOException {
         String txt = IoUtil.readFile("D:\\1.txt");
-        // System.out.println(txt);
 
         String[] unit = txt.split("\r\n");
         for (String string : unit) {
