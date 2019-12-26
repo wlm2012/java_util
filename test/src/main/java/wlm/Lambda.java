@@ -17,7 +17,6 @@ public class Lambda {
 
     public static void repeat() {
         repeat(10, () -> {
-
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
