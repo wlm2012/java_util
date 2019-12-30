@@ -10,7 +10,7 @@ public class App {
 
     }
 /**
- * 与0xff相交，可以去除8位以上数据
+ * 与0xff相交，可以去除8位以上的数据
  */
     public static void test() {
         // Byte b=1;
@@ -18,8 +18,8 @@ public class App {
         int value1=0xff;
         System.out.println(value);
         System.out.println(value1);
+        
+        
     }
-
-
 
 }
