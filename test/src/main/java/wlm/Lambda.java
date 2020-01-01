@@ -47,7 +47,7 @@ public class Lambda {
             System.out.println(p.getName());
         });
 
-        checkAndExecute(pList, (p) -> {
+        checkAndExecute(pList,p-> {
             return p.getName().startsWith("q");
         }, p -> {
             System.out.println(p.getName());
