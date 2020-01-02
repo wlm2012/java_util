@@ -17,4 +17,6 @@ public class StreamTest {
         long num=words.stream().filter(w -> w.length()>2).count();
         System.out.println(num);
     }
+
+    
 }
