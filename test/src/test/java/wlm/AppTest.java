@@ -11,6 +11,6 @@ public class AppTest {
      */
     @Test
     public void shouldAnswerWithTrue() {
-        wlm.Test.test1();
+        wlm.StreamTest.test();
     }
 }
