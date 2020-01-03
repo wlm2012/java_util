@@ -31,12 +31,12 @@ public class StreamTest {
         Stream<String> words = Stream.generate(() -> "word");
         System.out.println(words);
     }
-    //无限流会一致产生，即使没有输出
+    //无限流会一直产生，即使没有输出
     public static void test3() {
         Stream<BigInteger> iStream = Stream.iterate(BigInteger.ZERO, n -> n.add(BigInteger.ONE));
         iStream.filter(n -> n.compareTo(BigInteger.valueOf(100)) < 0).forEach(System.out::print);
     }
 
-    
+
 
 }
