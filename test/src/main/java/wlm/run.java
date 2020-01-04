@@ -23,14 +23,17 @@ public class run {
         }
     }
 
-    //捕获线程中的错误
+    //捕获多线程中的错误
     public static void test1() {
         Runnable run = () -> {
             int a = 1 / 0;
+            System.out.println(a);
         };
 
         Thread thread = new Thread(run);
         thread.setUncaughtExceptionHandler(new MyCrashHandler());
         thread.start();
     }
+
+    
 }

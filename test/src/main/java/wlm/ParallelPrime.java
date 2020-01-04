@@ -5,7 +5,6 @@ import java.util.*;
 import java.util.stream.*;
 import static java.util.stream.LongStream.*;
 import java.io.*;
-import java.nio.file.*;
 
 public class ParallelPrime {
     static final int COUNT = 100_000;
@@ -21,6 +20,7 @@ public class ParallelPrime {
                 .filter(ParallelPrime::isPrime).limit(COUNT).mapToObj(Long::toString).collect(Collectors.toList());
         long end = System.currentTimeMillis();
         System.out.println(end-start);
+        System.out.println(primes);
         // Files.write(Paths.get("primes.txt"), primes, StandardOpenOption.CREATE);
     }
 }
