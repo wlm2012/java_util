@@ -14,6 +14,14 @@ public class EnumTest {
         System.out.println("ab=" + size.getAd());
         in.close();
     }
+/*  input:   small
+    output:
+    string=small
+    size=small
+    ab=s
+    
+    */
+
 
 }
 
