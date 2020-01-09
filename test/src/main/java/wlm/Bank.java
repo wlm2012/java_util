@@ -21,7 +21,8 @@ public class Bank {
         bankLock.lock();
         try {
             if (accounts[from] < amount) {
-                return;
+                //未完成
+                sufficientFunds.signalAll();
             }
             System.out.print(Thread.currentThread());
             accounts[from] -= amount;
