@@ -20,7 +20,8 @@ public class ProxyTest {
         for (int i = 0; i < elements.length; i++) {
             Integer value = i + 1;
             InvocationHandler handler = new TraceHandler(value);
-            Object proxy = Proxy.newProxyInstance(null, new Class[] { Comparable.class }, handler);
+            Object proxy = Proxy.newProxyInstance(ClassLoader.getSystemClassLoader(), new Class[] { Comparable.class },
+                    handler);
             elements[i] = proxy;
         }
         Integer key = new Random().nextInt(elements.length) + 1;
@@ -51,9 +52,8 @@ class TraceHandler implements InvocationHandler {
                     System.out.println(",");
                 }
             }
-            System.out.println(")");
         }
+        System.out.println(")");
         return m.invoke(target, args);
     }
-
 }
