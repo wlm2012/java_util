@@ -1,4 +1,4 @@
-package wlm;
+package wlm.concurrency;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 

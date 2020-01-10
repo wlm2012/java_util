@@ -1,4 +1,4 @@
-package wlm;
+package wlm.concurrency;
 
 public class ThreadTest {
     

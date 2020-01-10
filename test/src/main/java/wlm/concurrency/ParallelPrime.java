@@ -1,4 +1,4 @@
-package wlm;
+package wlm.concurrency;
 
 // concurrent/ParallelPrime.java
 import java.util.*;

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
+import wlm.entity.Person;
+
 public class Lambda {
 
     public static void test(String[] strings) {
@@ -33,7 +35,7 @@ public class Lambda {
         }
     }
 
-    public static void checkAndExecute(List<Person> list, Predicate<Person> Predicate, Consumer<Person> consumer) {
+    public static void checkAndExecute(List<Person>list, Predicate<Person> Predicate, Consumer<Person> consumer) {
         for (Person person : list) {
             if (Predicate.test(person)) {
                 consumer.accept(person);

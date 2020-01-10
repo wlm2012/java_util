@@ -1,4 +1,4 @@
-package wlm;
+package wlm.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
