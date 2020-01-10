@@ -1,4 +1,4 @@
-package wlm;
+package wlm.leecode;
 
 public class ListNode {
     int val;

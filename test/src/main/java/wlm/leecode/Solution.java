@@ -1,4 +1,4 @@
-package wlm;
+package wlm.leecode;
 
 class Solution {
 
