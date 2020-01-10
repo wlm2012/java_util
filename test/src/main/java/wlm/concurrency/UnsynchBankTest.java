@@ -1,4 +1,4 @@
-package wlm;
+package wlm.concurrency;
 
 public class UnsynchBankTest {
     public static final int NACCOUNTS = 100;

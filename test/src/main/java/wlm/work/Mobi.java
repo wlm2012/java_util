@@ -2,6 +2,8 @@ package wlm.work;
 
 import java.io.IOException;
 
+import wlm.IoUtil;
+
 public class Mobi {
 
     public static void main(String[] args) throws IOException {

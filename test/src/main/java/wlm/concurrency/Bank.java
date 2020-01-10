@@ -1,4 +1,4 @@
-package wlm;
+package wlm.concurrency;
 
 import java.util.Arrays;
 import java.util.concurrent.locks.Condition;
