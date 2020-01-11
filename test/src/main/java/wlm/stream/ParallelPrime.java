@@ -17,7 +17,7 @@ public class ParallelPrime {
         long start = System.currentTimeMillis();
         List<String> primes = iterate(2, i -> i + 1)
         .parallel() // [1]
-                .filter(ParallelPrime::isPrime).limit(COUNT).mapToObj(Long::toString).collect(Collectors.toList());
+        .filter(ParallelPrime::isPrime).limit(COUNT).mapToObj(Long::toString).collect(Collectors.toList());
         long end = System.currentTimeMillis();
         System.out.println(end-start);
         System.out.println(primes);
