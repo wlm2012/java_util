@@ -1,4 +1,4 @@
-package wlm;
+package wlm.stream;
 
 import java.math.BigInteger;
 import java.util.ArrayList;
