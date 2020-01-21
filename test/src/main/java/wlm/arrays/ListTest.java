@@ -1,4 +1,4 @@
-package wlm;
+package wlm.arrays;
 
 
 import java.util.ArrayList;

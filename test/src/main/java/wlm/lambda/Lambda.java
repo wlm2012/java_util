@@ -1,4 +1,4 @@
-package wlm;
+package wlm.lambda;
 
 import java.util.Arrays;
 import java.util.Comparator;

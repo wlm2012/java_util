@@ -1,4 +1,4 @@
-package wlm;
+package wlm.enumtest;
 
 import java.util.Scanner;
 

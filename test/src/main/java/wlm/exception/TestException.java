@@ -1,4 +1,4 @@
-package wlm;
+package wlm.exception;
 
 import java.io.IOException;
 
