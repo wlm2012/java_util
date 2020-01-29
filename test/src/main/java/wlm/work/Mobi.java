@@ -2,7 +2,7 @@ package wlm.work;
 
 import java.io.IOException;
 
-import wlm.IoUtil;
+import wlm.io.IoUtil;
 
 public class Mobi {
 

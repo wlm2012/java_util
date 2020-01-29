@@ -1,4 +1,6 @@
-package wlm;
+package wlm.reflect;
+
+import wlm.enumtest.EnumTest;
 
 /**
  * ReflectTest
