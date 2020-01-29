@@ -17,12 +17,12 @@ public class Bank {
         sufficientFunds = bankLock.newCondition();
     }
 
-    public void transfer(int from, int to, double amount) {
+    public void transfer(int from, int to, double amount) throws InterruptedException {
         bankLock.lock();
         try {
             if (accounts[from] < amount) {
                 //未完成
-                sufficientFunds.signalAll();
+                sufficientFunds.await();
             }
             System.out.print(Thread.currentThread());
             accounts[from] -= amount;
