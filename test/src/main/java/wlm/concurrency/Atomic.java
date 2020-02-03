@@ -1,7 +1,11 @@
 package wlm.concurrency;
 
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.LongAdder;
+
+
 
 /**
  * @author wlm
@@ -23,5 +27,11 @@ public class Atomic {
     public static void longAdder(){
         var addr=new LongAdder();
 
+    }
+
+
+    public static void count(){
+        ExecutorService service= Executors.newCachedThreadPool();
+        
     }
 }
