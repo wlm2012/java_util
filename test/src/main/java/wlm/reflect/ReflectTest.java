@@ -1,6 +1,9 @@
 package wlm.reflect;
 
+import wlm.entity.Person;
 import wlm.enumtest.EnumTest;
+
+import java.util.Arrays;
 
 /**
  * ReflectTest
@@ -8,7 +11,7 @@ import wlm.enumtest.EnumTest;
 public class ReflectTest {
 
     public static void main(String[] args) {
-        test();
+        test1();
     }
 
     public static void test() {
@@ -18,6 +21,13 @@ public class ReflectTest {
     }
 
     public static void test1() {
+        Person person = new Person();
+        System.out.println(person.getClass());
+        System.out.println(Person.class);
+        System.out.println(Arrays.toString(Person.class.getConstructors()));
+    }
+
+    public static void test2(){
 
     }
 }
