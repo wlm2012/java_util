@@ -28,6 +28,6 @@ public class ReflectTest {
     }
 
     public static void test2(){
-
+        
     }
 }
