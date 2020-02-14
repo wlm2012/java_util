@@ -3,6 +3,7 @@ package wlm.reflect;
 import wlm.entity.Person;
 import wlm.enumtest.EnumTest;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 /**
@@ -10,8 +11,8 @@ import java.util.Arrays;
  */
 public class ReflectTest {
 
-    public static void main(String[] args) {
-        test1();
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        testConstructor();
     }
 
     public static void test() {
@@ -27,7 +28,10 @@ public class ReflectTest {
         System.out.println(Arrays.toString(Person.class.getConstructors()));
     }
 
-    public static void test2(){
-        
+    public static void testConstructor() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        Class c1=Class.forName("wlm.entity.Person");
+        Person person=(Person) c1.getConstructor().newInstance();
+        String name=person.getName();
+        System.out.println(name);
     }
 }
