@@ -30,8 +30,11 @@ public class ReflectTest {
 
     public static void testConstructor() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         Class c1=Class.forName("wlm.entity.Person");
-        Person person=(Person) c1.getConstructor().newInstance();
+//      Person person=(Person) c1.getConstructor().newInstance();
+        Person person=(Person) c1.getConstructor(String.class,int.class).newInstance("wlm",11);
         String name=person.getName();
         System.out.println(name);
+        System.out.println(person.getOld());
+        person.printName();
     }
 }
