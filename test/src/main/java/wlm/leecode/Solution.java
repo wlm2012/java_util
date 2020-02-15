@@ -7,7 +7,7 @@ class Solution {
 
     public static void main(String[] args) {
         Solution solution = new Solution();
-        int[] ints={1,2,3,4};
+        int[] ints = {1, 2, 3, 4};
         System.out.println(Arrays.toString(solution.decompressRLElist(ints)));
     }
 
@@ -15,12 +15,12 @@ class Solution {
     public int[] decompressRLElist(int[] nums) {
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length / 2; i++) {
-            gen(nums[2*i],nums[2*i+1],list);
+            gen(nums[2 * i], nums[2 * i + 1], list);
         }
 
-        int[] num=new int[list.size()];
-        for (int i = 0; i < list.size(); i++){
-            num[i]=list.get(i);
+        int[] num = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            num[i] = list.get(i);
         }
         return num;
     }
