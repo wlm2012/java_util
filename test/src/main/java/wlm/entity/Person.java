@@ -19,4 +19,8 @@ public class Person {
     public void  printName(){
         System.out.println("name:"+name);
     }
+
+    public void  printYear(String year){
+        System.out.println("year: "+ year);
+    }
 }
