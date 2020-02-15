@@ -1,6 +1,35 @@
 package wlm.leecode;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 class Solution {
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] ints={1,2,3,4};
+        System.out.println(Arrays.toString(solution.decompressRLElist(ints)));
+    }
+
+    //1313. Decompress Run-Length Encoded List
+    public int[] decompressRLElist(int[] nums) {
+        ArrayList<Integer> list = new ArrayList<>();
+        for (int i = 0; i < nums.length / 2; i++) {
+            gen(nums[2*i],nums[2*i+1],list);
+        }
+
+        int[] num=new int[list.size()];
+        for (int i = 0; i < list.size(); i++){
+            num[i]=list.get(i);
+        }
+        return num;
+    }
+
+    public static void gen(int a, int b, ArrayList<Integer> arrayList) {
+        for (int i = 0; i < a; i++) {
+            arrayList.add(b);
+        }
+    }
 
     public int balancedStringSplit(String s) {
         int nums = 0;
@@ -18,7 +47,7 @@ class Solution {
         for (int i = 0; i < nums.length; i++) {
             for (int j = i; j < nums.length; j++) {
                 if (target == (nums[i] + nums[j])) {
-                    int[] n = { i, j };
+                    int[] n = {i, j};
                     return n;
                 }
             }
@@ -53,14 +82,14 @@ class Solution {
         return listNode.next;
     }
 
-    public static void main(String[] args) {
+    public static void test() {
         /*
          * ListNode l1=new ListNode(5); l1.next=new ListNode(4); l1.next.next=new
          * ListNode(3);
-         * 
+         *
          * ListNode l2=new ListNode(5); l2.next=new ListNode(6); l2.next.next=new
          * ListNode(4); Solution solution=new Solution();
-         * 
+         *
          * ListNode listNode=solution.addTwoNumbers(l1,l2);
          * System.out.println(listNode.val+""+listNode.next.val+listNode.next.next.val);
          */
@@ -68,4 +97,6 @@ class Solution {
         Solution solution = new Solution();
         solution.balancedStringSplit("RLRRLLRLRL");
     }
+
+
 }
