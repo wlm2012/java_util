@@ -22,7 +22,7 @@ public class ReflectTest {
         System.out.println(name);
     }
 
-    public static void test1() {
+    public static void testClass() {
         Person person = new Person();
         System.out.println(person.getClass());
         System.out.println(Person.class);
@@ -45,5 +45,7 @@ public class ReflectTest {
         Object person= c1.getConstructor().newInstance();
         Method method=c1.getMethod("printYear",String.class);
         method.invoke(person,"2020");
+
+
     }
 }
