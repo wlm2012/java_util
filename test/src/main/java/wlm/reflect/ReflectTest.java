@@ -3,17 +3,19 @@ package wlm.reflect;
 import wlm.entity.Person;
 import wlm.enumtest.EnumTest;
 
+import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Arrays;
 
 /**
  * ReflectTest
+ * @author wlm
  */
 public class ReflectTest {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        testMethod();
+        ResourceTest();
     }
 
     public static void test() {
@@ -45,7 +47,14 @@ public class ReflectTest {
         Object person = c1.getConstructor().newInstance();
         Method method = c1.getMethod("printYear", String.class);
         method.invoke(person, "2020");
+    }
 
+    public static void ResourceTest() throws ClassNotFoundException {
+        Class c1 = Class.forName("wlm.entity.Person");
+        System.out.println(c1.getResource("1.txt"));
+        InputStream inputStream=c1.getResourceAsStream("1.txt");
 
     }
+
+
 }
