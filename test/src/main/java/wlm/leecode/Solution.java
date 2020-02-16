@@ -11,6 +11,23 @@ class Solution {
         System.out.println(Arrays.toString(solution.decompressRLElist(ints)));
     }
 
+
+    //1295. Find Numbers with Even Number of Digits
+    public int findNumbers(int[] nums) {
+        int result = 0;
+        for (int num : nums) {
+            int even = 0;
+            do {
+                even++;
+                num /= 10;
+            } while (num > 0);
+            if (even % 2 == 0) {
+                result++;
+            }
+        }
+        return result;
+    }
+
     //1313. Decompress Run-Length Encoded List
     public int[] decompressRLElist(int[] nums) {
         ArrayList<Integer> list = new ArrayList<>();
