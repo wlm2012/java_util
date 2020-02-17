@@ -9,18 +9,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Person {
 
-    private String name;
-    private int old;
+	private String name;
+	private int old;
+	public String sex;
 
-    public void printNull(){
-        System.out.println("null");
-    }
+	public void printNull() {
+		System.out.println("null");
+	}
 
-    public void  printName(){
-        System.out.println("name:"+name);
-    }
+	public void printName() {
+		System.out.println("name:" + name);
+	}
 
-    public void  printYear(String year){
-        System.out.println("year: "+ year);
-    }
+	public void printYear(String year) {
+		System.out.println("year: " + year);
+	}
 }
