@@ -53,11 +53,12 @@ public class ReflectTest {
 
     public static void ResourceTest() throws ClassNotFoundException, IOException {
         Class c1 = Class.forName("wlm.entity.Person");
+        //create 1.txt under Person.class fold
         System.out.println(c1.getResource("1.txt"));
         InputStream inputStream = c1.getResourceAsStream("1.txt");
         StringBuffer stringBuffer = new StringBuffer();
         byte[] buf = new byte[1024 * 10];
-        int temp = 0;
+        int temp;
         while ((temp = inputStream.read(buf)) > 0) {
             stringBuffer.append(new String(buf, 0, temp));
         }
