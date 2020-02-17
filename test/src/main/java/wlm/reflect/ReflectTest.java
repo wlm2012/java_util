@@ -19,8 +19,8 @@ import java.util.Arrays;
 public class ReflectTest {
 
 	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException {
-		Class c1 = Class.forName("wlm.entity.Person");
-		printField(c1);
+//		Class c1 = Class.forName("wlm.entity.Person");
+		setAndGetField();
 	}
 
 	public static void test() {
@@ -85,7 +85,9 @@ public class ReflectTest {
 		var harry =(Person)c1.getConstructor(String.class, int.class, String.class).newInstance("Harry", 14, "1");
 		Field[] fields=c1.getDeclaredFields();
 		for (Field field:fields){
-
+			field.setAccessible(true);
+			Object s=field.get(harry);
+			System.out.println(s);
 		}
 
 	}
