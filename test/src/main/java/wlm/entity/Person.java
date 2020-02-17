@@ -4,14 +4,23 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@AllArgsConstructor
+import java.net.http.HttpTimeoutException;
+
+
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Person {
 
 	private String name;
 	private int old;
 	public String sex;
+
+
+	public Person(String name, int old) {
+		this(name, old, "1");
+	}
+
 
 	public void printNull() {
 		System.out.println("null");

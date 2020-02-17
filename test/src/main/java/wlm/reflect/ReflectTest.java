@@ -84,7 +84,9 @@ public class ReflectTest {
 		Class c1 = Class.forName("wlm.entity.Person");
 		var harry =(Person)c1.getConstructor(String.class, int.class, String.class).newInstance("Harry", 14, "1");
 		Field[] fields=c1.getDeclaredFields();
-		for ()
+		for (Field field:fields){
+
+		}
 
 	}
 
