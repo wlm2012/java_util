@@ -18,7 +18,7 @@ import java.util.Arrays;
  */
 public class ReflectTest {
 
-	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException {
+	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException, NoSuchFieldException {
 //		Class c1 = Class.forName("wlm.entity.Person");
 		setAndGetField();
 	}
@@ -80,9 +80,25 @@ public class ReflectTest {
 		}
 	}
 
-	public static void setAndGetField() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+	public static void setAndGetField() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
 		Class c1 = Class.forName("wlm.entity.Person");
 		var harry =(Person)c1.getConstructor(String.class, int.class, String.class).newInstance("Harry", 14, "1");
+		//change the value of "sex", 1->2
+		Field sex=c1.getDeclaredField("sex");
+		sex.set(harry,"2");
+
+		//change the value of "name" , Harry->potter
+		Field name=c1.getDeclaredField("name");
+		//private field ,need setAccessible(true)
+		name.setAccessible(true);
+		name.set(harry,"potter");
+
+		/**
+		 * output:
+		 * potter
+		 * 14
+		 * 2
+		 */
 		Field[] fields=c1.getDeclaredFields();
 		for (Field field:fields){
 			field.setAccessible(true);
