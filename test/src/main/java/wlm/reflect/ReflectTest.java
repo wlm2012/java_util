@@ -5,10 +5,7 @@ import wlm.enumtest.EnumTest;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 /**
@@ -19,8 +16,12 @@ import java.util.Arrays;
 public class ReflectTest {
 
 	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException, NoSuchFieldException {
-//		Class c1 = Class.forName("wlm.entity.Person");
-		setAndGetField();
+		Class c1 = Class.forName("wlm.entity.Person");
+
+		int[] a={1,2,3};
+		int length=4;
+		System.out.println(Arrays.toString((int[]) copyArray(a,1)));
+		System.out.println(Arrays.toString((int[]) copyArray(a,length)));
 	}
 
 	public static void test() {
@@ -82,16 +83,16 @@ public class ReflectTest {
 
 	public static void setAndGetField() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
 		Class c1 = Class.forName("wlm.entity.Person");
-		var harry =(Person)c1.getConstructor(String.class, int.class, String.class).newInstance("Harry", 14, "1");
+		var harry = (Person) c1.getConstructor(String.class, int.class, String.class).newInstance("Harry", 14, "1");
 		//change the value of "sex", 1->2
-		Field sex=c1.getDeclaredField("sex");
-		sex.set(harry,"2");
+		Field sex = c1.getDeclaredField("sex");
+		sex.set(harry, "2");
 
 		//change the value of "name" , Harry->potter
-		Field name=c1.getDeclaredField("name");
+		Field name = c1.getDeclaredField("name");
 		//private field ,need setAccessible(true)
 		name.setAccessible(true);
-		name.set(harry,"potter");
+		name.set(harry, "potter");
 
 		/**
 		 * output:
@@ -99,13 +100,28 @@ public class ReflectTest {
 		 * 14
 		 * 2
 		 */
-		Field[] fields=c1.getDeclaredFields();
-		for (Field field:fields){
+		Field[] fields = c1.getDeclaredFields();
+		for (Field field : fields) {
 			field.setAccessible(true);
-			Object s=field.get(harry);
+			Object s = field.get(harry);
 			System.out.println(s);
 		}
 
+	}
+
+
+
+
+	public static Object copyArray(Object a, int newLength) {
+		Class c1 = a.getClass();
+		if (!c1.isArray()) {
+			return null;
+		}
+		Class type = c1.getComponentType();
+		int length = Array.getLength(a);
+		Object newArray = Array.newInstance(type, newLength);
+		System.arraycopy(a, 0, newArray, 0, Math.min(newLength, length));
+		return newArray;
 	}
 
 }
