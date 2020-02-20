@@ -15,6 +15,7 @@ public class Person {
 	private String name;
 	private int old;
 	public String sex;
+	public static String like="linux";
 
 
 	public Person(String name, int old) {
@@ -33,4 +34,11 @@ public class Person {
 	public void printYear(String year) {
 		System.out.println("year: " + year);
 	}
+
+
+	public static void printLike() {
+		System.out.println("like:  " + like);
+	}
+
+
 }

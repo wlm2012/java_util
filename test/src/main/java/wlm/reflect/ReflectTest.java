@@ -18,10 +18,11 @@ public class ReflectTest {
 	public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException, IOException, NoSuchFieldException {
 		Class c1 = Class.forName("wlm.entity.Person");
 
-		int[] a={1,2,3};
-		int length=4;
-		System.out.println(Arrays.toString((int[]) copyArray(a,1)));
-		System.out.println(Arrays.toString((int[]) copyArray(a,length)));
+		int[] a = {1, 2, 3};
+		int length = 4;
+//		System.out.println(Arrays.toString((int[]) copyArray(a,1)));
+//		System.out.println(Arrays.toString((int[]) copyArray(a,length)));
+		testMethod();
 	}
 
 	public static void test() {
@@ -51,8 +52,13 @@ public class ReflectTest {
 	public static void testMethod() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
 		Class c1 = Class.forName("wlm.entity.Person");
 		Object person = c1.getConstructor().newInstance();
-		Method method = c1.getMethod("printYear", String.class);
-		method.invoke(person, "2020");
+
+		Method printYear = c1.getMethod("printYear", String.class);
+		printYear.invoke(person, "2020");
+
+		//For a static method, the first parameter is ignored, you can set it to null
+		Method printLike = c1.getMethod("printLike");
+		printLike.invoke(null);
 	}
 
 	public static void ResourceTest() throws ClassNotFoundException, IOException {
@@ -108,8 +114,6 @@ public class ReflectTest {
 		}
 
 	}
-
-
 
 
 	public static Object copyArray(Object a, int newLength) {
