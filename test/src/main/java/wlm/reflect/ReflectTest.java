@@ -22,7 +22,7 @@ public class ReflectTest {
 		int length = 4;
 //		System.out.println(Arrays.toString((int[]) copyArray(a,1)));
 //		System.out.println(Arrays.toString((int[]) copyArray(a,length)));
-		testMethod();
+		setAndGetField();
 	}
 
 	public static void test() {
@@ -90,6 +90,7 @@ public class ReflectTest {
 	public static void setAndGetField() throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
 		Class c1 = Class.forName("wlm.entity.Person");
 		var harry = (Person) c1.getConstructor(String.class, int.class, String.class).newInstance("Harry", 14, "1");
+
 		//change the value of "sex", 1->2
 		Field sex = c1.getDeclaredField("sex");
 		sex.set(harry, "2");
@@ -99,6 +100,11 @@ public class ReflectTest {
 		//private field ,need setAccessible(true)
 		name.setAccessible(true);
 		name.set(harry, "potter");
+
+		//static field  set xxx.class or object
+		Field like =c1.getDeclaredField("like");
+		like.set(Person.class,"kde");
+		like.set(harry,"unix");
 
 		/**
 		 * output:
