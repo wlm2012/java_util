@@ -2,6 +2,9 @@ package wlm.enumtest;
 
 import java.util.Scanner;
 
+/**
+ * @author wlm
+ */
 public class EnumTest {
 
 	public static void main(String[] args) {
