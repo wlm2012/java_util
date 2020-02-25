@@ -28,3 +28,4 @@ test/.settings
 test/.vscode
 test/target
 test/.project
+test/.factorypath
