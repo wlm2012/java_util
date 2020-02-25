@@ -1,6 +1,5 @@
-package wlm.innerClass;
+package wlm.innerclass;
 
-import java.sql.SQLOutput;
 
 /**
  * @author lenovo2

@@ -1,4 +1,4 @@
-package wlm.innerClass;
+package wlm.innerclass;
 
 public class test {
 
