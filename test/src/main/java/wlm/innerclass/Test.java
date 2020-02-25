@@ -1,6 +1,9 @@
 package wlm.innerclass;
 
-public class test {
+/**
+ * @author lenovo2
+ */
+public class Test {
 
 	public static void main(String[] args) {
 		OutClass outClass = new OutClass();
