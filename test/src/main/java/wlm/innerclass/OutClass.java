@@ -22,7 +22,8 @@ public class OutClass {
 	public class Inner {
 		public Inner() {
 			System.out.println("init inner construct");
-//			InnerClass innerClass=new InnerClass();
+			//private class cannot construct outside
+			InnerClass innerClass=new InnerClass();
 		}
 
 		//An inner class cannot have static methods
