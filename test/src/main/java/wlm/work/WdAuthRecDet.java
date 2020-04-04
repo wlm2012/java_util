@@ -6,8 +6,12 @@ package wlm.work;
 public class WdAuthRecDet {
 
     public static void main(String[] args) {
-        String s = "uj市rh8区84t路t室";
+        String s = "黄岛区烟台路399号K2海棠湾F区5栋2单元2804户";
         System.out.println(getPathName(s));
+
+        System.out.println("123".indexOf(1));
+        System.out.println("123".indexOf(1+""));
+        System.out.println("123".indexOf("1"));
     }
 
     public static void name() {
@@ -54,7 +58,7 @@ public class WdAuthRecDet {
 
         last = s.lastIndexOf("路");
         if (s.lastIndexOf("区", last) > 0) {
-            return s.substring(s.lastIndexOf("区") + 1, last);
+            return s.substring(s.lastIndexOf("区", last) + 1, last);
         } else {
             if (s.lastIndexOf("市南", last) > 0 || s.lastIndexOf("市北", last) > 0) {
                 return s.substring(last - 2 > 0 ? last - 2 : 0, last);
