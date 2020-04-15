@@ -12,8 +12,7 @@ public class Test {
 	ArrayList<String> list = new ArrayList<>();
 
 	public static void main(String[] args) {
-		Test test=new Test();
-		test.name();
+		test6();
 	}
 
 	public static void test4() {
@@ -73,6 +72,12 @@ public class Test {
 		Object d = null;
 		String s = (String) d;
 		System.out.println(s);
+	}
+
+	public static void test6() {
+		String xlx="1100003272_fc.xlsx";
+		System.out.println(xlx.split("\\.")[0]);
+		System.out.println(xlx.substring(0,xlx.lastIndexOf(".")));
 	}
 
 }
