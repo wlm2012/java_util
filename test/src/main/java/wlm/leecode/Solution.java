@@ -2,6 +2,7 @@ package wlm.leecode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 
 class Solution {
 
@@ -10,6 +11,29 @@ class Solution {
 		int[] ints = {1, 2, 3, 4};
 		System.out.println(Arrays.toString(solution.decompressRLElist(ints)));
 	}
+
+
+	//1365. How Many Numbers Are Smaller Than the Current Number
+	public int[] smallerNumbersThanCurrent(int[] nums) {
+		int[] result=new int[nums.length];
+        for (int i =0;i<nums.length;i++) {
+			result[i]=returnNum(nums[i], nums);
+		}
+		return result;
+	}
+	
+	public int returnNum(int num, int[] nums) {
+		int count = 0;
+		for (int i : nums) {
+			if (num > i) {
+				count++;
+			}
+		}
+		return count;
+
+	}
+
+
 
 	//1323. Maximum 69 Number
 	public int maximum69Number(int num) {
