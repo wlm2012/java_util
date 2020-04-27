@@ -6,6 +6,23 @@ import java.util.Map;
 
 class Solution {
 
+	//1389. Create Target Array in the Given Order
+	public int[] createTargetArray(int[] nums, int[] index) {
+		ArrayList<Integer> list = new ArrayList<>();
+
+		for (int i = 0; i < index.length; i++) {
+			list.add(index[i], nums[i]);
+		}
+		int[] result = new int[nums.length];
+
+		for (int i = 0; i < result.length; i++) {
+			result[i] = list.get(i);
+		}
+
+		return result;
+
+	}
+
 	public static void main(String[] args) {
 		Solution solution = new Solution();
 		int[] ints = {1, 2, 3, 4};
