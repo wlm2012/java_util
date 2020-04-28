@@ -2,6 +2,9 @@ package wlm.exception;
 
 import java.io.IOException;
 
+
+
+//如果return一个值后，会覆盖原来的报错信息，开启testEx2()中的return，则testEx1()无法捕获错误
 public class TestException {
 
     boolean testEx() throws Exception {
@@ -55,8 +58,8 @@ public class TestException {
             throw new IOException();
         } finally {
             System.out.println("testEx2, finally; return value=" + ret);
-            // ret=true;
-            // return ret;
+            ret=true;
+            return ret;
         }
     }
 

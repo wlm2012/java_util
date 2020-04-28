@@ -2,9 +2,27 @@ package wlm.leecode;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Map;
 
 class Solution {
+
+	//1266. Minimum Time Visiting All Points
+	public int minTimeToVisitAllPoints(int[][] points) {
+		int[] before=points[0];
+		int result=0;
+		for (int i = 1; i < points.length; i++) {
+			int max=0;
+			if (Math.abs(points[i][0]-before[0])>Math.abs(points[i][1]-before[1])){
+				max=Math.abs(points[i][0]-before[0]);
+			}else{
+				max=Math.abs(points[i][1]-before[1]);
+			}
+			result+=max;
+			before=points[i];
+		}
+
+		return result;
+    }
+
 
 	//1389. Create Target Array in the Given Order
 	public int[] createTargetArray(int[] nums, int[] index) {
