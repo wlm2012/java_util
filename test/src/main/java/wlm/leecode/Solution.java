@@ -3,7 +3,26 @@ package wlm.leecode;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
 class Solution {
+
+	//1409. Queries on a Permutation With Key
+	public int[] processQueries(int[] queries, int m) {
+		int[] result = new int[queries.length];
+		ArrayList<Integer> list = new ArrayList<>();
+		for (int i = 1; i <= m; i++) {
+			list.add(i);
+		}
+
+		for (int i = 0; i < queries.length; i++) {
+			result[i] = list.indexOf(queries[i]);
+			list.remove(result[i]);
+			list.add(0, queries[i]);
+		}
+
+		return result;
+	}
+    
 
 	//1266. Minimum Time Visiting All Points
 	public int minTimeToVisitAllPoints(int[][] points) {
