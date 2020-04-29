@@ -58,8 +58,8 @@ public class TestException {
             throw new IOException();
         } finally {
             System.out.println("testEx2, finally; return value=" + ret);
-            ret=true;
-            return ret;
+            // ret=true;
+            // return ret;
         }
     }
 
