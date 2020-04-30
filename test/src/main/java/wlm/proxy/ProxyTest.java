@@ -11,9 +11,7 @@ import java.util.Random;
  */
 public class ProxyTest {
 
-    public static void main(String[] args) {
-        test();
-    }
+
 
     public static void test() {
         Object[] elements = new Object[1000];
